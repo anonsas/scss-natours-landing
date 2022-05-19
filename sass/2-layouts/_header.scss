@@ -1,0 +1,65 @@
+@use '../0-abstracts' as *;
+
+.header {
+  position: relative;
+
+  height: 95vh;
+
+  @include linear-bg-img(
+    $color-primary-light,
+    $color-primary-dark,
+    'https://ik.imagekit.io/anonsas/tr:w-1200/natours/hero.jpg',
+    0.8
+  );
+
+  background-position: top;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (--webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+    @include linear-bg-img(
+      $color-primary-light,
+      $color-primary-dark,
+      'https://ik.imagekit.io/anonsas/natours/hero.jpg',
+      0.8
+    );
+  }
+
+  @media only screen and (min-width: 125em) {
+    @include linear-bg-img(
+      $color-primary-light,
+      $color-primary-dark,
+      'https://ik.imagekit.io/anonsas/natours/hero.jpg',
+      0.8
+    );
+  }
+
+  @include respond(tab-port) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    height: 3.5rem;
+    width: auto;
+  }
+  &__logo {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+  }
+}

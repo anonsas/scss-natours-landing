@@ -1,0 +1,46 @@
+@use '../0-abstracts' as *;
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    max-width: 40rem;
+  }
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    place-content: center;
+    row-gap: 4rem;
+  }
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    place-content: center;
+    row-gap: 6rem;
+  }
+}
+
+.col-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    place-content: center;
+    row-gap: 6rem;
+  }
+}

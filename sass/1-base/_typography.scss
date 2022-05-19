@@ -1,0 +1,79 @@
+@use '../0-abstracts' as *;
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  font-weight: 400;
+  margin-bottom: 6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  &--main {
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+
+    animation: moveFromLeft 1s ease-out;
+
+    @include respond(phone) {
+      font-size: 5rem;
+      letter-spacing: 1.5rem;
+    }
+  }
+
+  &--sub {
+    font-size: 2rem;
+    letter-spacing: 1.75rem;
+
+    animation: moveFromRight 1s ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: inline-block;
+
+  background: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+
+  // Making text-transparent(invisible),so
+  // that the background could take place.
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  transition: all 0.2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading__tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+}
+
+.p-text {
+  font-size: $default-font-size;
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,33 @@
+@use '../0-abstracts' as *;
+
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: $shadow-1;
+
+  transition: transform 0.3s;
+
+  @include respond(phone) {
+    padding: 1.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+}
+
+ion-icon {
+  display: inline-block;
+  font-size: 6rem;
+  color: $color-primary;
+  --ionicon-stroke-width: 16px;
+
+  padding: 3rem 0;
+
+  @include respond(tab-port) {
+    padding: 1rem;
+  }
+}

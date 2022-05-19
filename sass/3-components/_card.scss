@@ -1,0 +1,306 @@
+@use '../0-abstracts' as *;
+
+// CARD FUNCTIONALITY
+.card {
+  perspective: 150rem;
+  height: 52rem;
+
+  position: relative;
+
+  &__side {
+    height: 100%;
+    width: 100%;
+    transition: all 0.8s ease;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: $shadow-1;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // Hides the visibility of the back-side.
+    backface-visibility: hidden;
+
+    &--front {
+      background-color: $color-white;
+    }
+    // Back-side is rotated from the beginning.
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+  // Front-side triggers rotation to 180deg.
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  // Back-side triggers rotation back to 0deg.
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+}
+
+// CARD FRONT-SIDE (PICTURE) STYLING
+.card__picture {
+  background-size: cover;
+  height: 23rem;
+
+  background-blend-mode: screen;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+  &--1 {
+    @include linear-bg-img(
+      $color-secondary-light,
+      $color-secondary-dark,
+      'https://ik.imagekit.io/anonsas/natours/tr:w-500/nat-5.jpg'
+    );
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (--webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+      @include linear-bg-img(
+        $color-secondary-light,
+        $color-secondary-dark,
+        'https://ik.imagekit.io/anonsas/natours/tr:w-1000/nat-5.jpg'
+      );
+    }
+
+    @media only screen and (min-width: 125em) {
+      @include linear-bg-img(
+        $color-secondary-light,
+        $color-secondary-dark,
+        'https://ik.imagekit.io/anonsas/natours/nat-5.jpg'
+      );
+    }
+  }
+
+  &--2 {
+    @include linear-bg-img(
+      $color-primary-light,
+      $color-primary-dark,
+      'https://ik.imagekit.io/anonsas/natours/tr:w-500/nat-6.jpg'
+    );
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (--webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+      @include linear-bg-img(
+        $color-primary-light,
+        $color-primary-dark,
+        'https://ik.imagekit.io/anonsas/natours/tr:w-1000/nat-6.jpg'
+      );
+    }
+
+    @media only screen and (min-width: 125em) {
+      @include linear-bg-img(
+        $color-primary-light,
+        $color-primary-dark,
+        'https://ik.imagekit.io/anonsas/natours/nat-6.jpg'
+      );
+    }
+  }
+
+  &--3 {
+    @include linear-bg-img(
+      $color-tertiary-light,
+      $color-tertiary-dark,
+      'https://ik.imagekit.io/anonsas/natours/tr:w-500/nat-7.jpg'
+    );
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (--webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em) {
+      @include linear-bg-img(
+        $color-tertiary-light,
+        $color-tertiary-dark,
+        'https://ik.imagekit.io/anonsas/natours/tr:w-1000/nat-7.jpg'
+      );
+    }
+
+    @media only screen and (min-width: 125em) {
+      @include linear-bg-img(
+        $color-tertiary-light,
+        $color-tertiary-dark,
+        'https://ik.imagekit.io/anonsas/natours/nat-7.jpg'
+      );
+    }
+  }
+}
+
+// CARD'S FRONT-SIDE (HEADING) STYLING
+.card {
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: right;
+    color: #fff;
+
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+
+    &--span {
+      padding: 1rem 1.5rem;
+
+      // Applies padding to multi-line text
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.85),
+          rgba($color-secondary-dark, 0.85)
+        );
+      }
+
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.85),
+          rgba($color-primary-dark, 0.85)
+        );
+      }
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.85),
+          rgba($color-tertiary-dark, 0.85)
+        );
+      }
+    }
+  }
+
+  // CARD'S FRONT-SIDE (LIST) STYLING
+  &__details {
+    padding: 3rem;
+
+    ul {
+      width: 80%;
+      list-style: none;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+}
+
+// CARDS'S BACK-SIDE
+.card__side--back {
+  &--1 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    );
+  }
+
+  &--2 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+  &--3 {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-tertiary-light,
+      $color-tertiary-dark
+    );
+  }
+}
+
+.card {
+  &__cta {
+    height: 100%;
+    padding: 8rem 0;
+
+    display: grid;
+    place-items: center;
+  }
+
+  &__price-box {
+    text-align: center;
+    color: $color-white;
+  }
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}
+
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
+  .card {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: $shadow-1;
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0deg);
+    }
+  }
+
+  // CARDS'S BACK-SIDE
+  .card__side--back {
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-tertiary-light,
+        $color-tertiary-dark
+      );
+    }
+  }
+
+  .card {
+    &__details {
+      padding: 1rem 3rem;
+    }
+    &__cta {
+      padding: 7rem 0 4rem;
+      row-gap: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
+  }
+}

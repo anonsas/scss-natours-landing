@@ -1,0 +1,89 @@
+@use '../0-abstracts' as *;
+
+.composition {
+  position: relative;
+
+  &__photo {
+    position: absolute;
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    transition: all 0.2s;
+    transform: scale(0.95);
+
+    outline-offset: 2rem;
+
+    @include respond(tab-port) {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover {
+      z-index: 10;
+      transform: scale(1.0001) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+
+      outline: 0.8rem solid $color-primary;
+    }
+
+    &--p1 {
+      top: 0;
+      left: 0;
+    }
+    &--p2 {
+      top: 4rem;
+      right: 0;
+    }
+    &--p3 {
+      bottom: 0;
+      left: 8rem;
+    }
+  }
+
+  @include respond(tab-port) {
+    &__photo {
+      width: 40%;
+      transition: all 0.2s;
+      transform: scale(1);
+
+      outline-offset: 2rem;
+
+      &:hover {
+        z-index: 0;
+        transform: scale(1) translateY(0);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        outline: none;
+      }
+
+      &--p1 {
+        top: 1rem;
+        left: 0;
+      }
+      &--p2 {
+        top: 0;
+        left: 0;
+        transform: translateX(11.5rem);
+        z-index: 1;
+
+        &:hover {
+          top: 0;
+          left: 0;
+          transform: translateX(11.5rem);
+          z-index: 1;
+        }
+      }
+
+      &--p3 {
+        top: 1rem;
+        right: 0;
+        transform: translateX(15rem);
+
+        &:hover {
+          top: 1rem;
+          right: 0;
+          transform: translateX(15rem);
+          z-index: 0;
+        }
+      }
+    }
+  }
+}
