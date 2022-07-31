@@ -25,7 +25,8 @@
     shape-outside: circle(50% at 50% 50%);
     border-radius: 50%;
     overflow: hidden;
-    transform: translateX(-3rem) skewX(12.01deg);
+    margin-right: 3rem;
+    margin-left: -3rem;
   }
 
   &__img {
@@ -77,8 +78,8 @@
 
       shape-outside: circle(50% at 50% 50%);
       clip-path: circle(50% at 50% 50%);
-      transform: translateX(0) skewX(0);
       margin-right: 3rem;
+      margin-left: 0;
     }
 
     &__caption {
