@@ -13,6 +13,7 @@ This project was built using [Node v16.x] and uses the following technologies:
 
 - NPM - for dependency management.
 - SASS - for keeping things organized.
+- JavaScript - to create dynamic and interactive web content.
 - ParcelJS - for bundling, transpilation, development, etc.
 - ImageKit.io - Global Image CDN, to speed up image delivery to the user.
 
