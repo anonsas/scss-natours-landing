@@ -1,7 +1,7 @@
 # Natours
 
 Exciting tours for adventurous people.  
-Live preview: https://natours-by-igor.netlify.app/
+Live preview: https://natours-igor.netlify.app
 
 ## Description
 
